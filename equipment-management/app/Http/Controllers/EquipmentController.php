@@ -83,8 +83,9 @@ class EquipmentController extends Controller
                          ->with('success', 'Equipment deleted successfully.');
     }
 
-    public function export()
+    public function exportToExcel()
     {
-        return Excel::download(new EquipmentExport, 'equipment.xlsx');
+        $equipments = Equipment::all();
+        return Excel::download(new EquipmentExport($equipments), 'equipment-data.xlsx');
     }
 }

@@ -18,6 +18,6 @@ use App\Http\Controllers\EquipmentController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('equipments/export', [EquipmentController::class, 'export'])->name('equipments-export');
+Route::get('equipments/export', [EquipmentController::class, 'exportToExcel'])->name('equipments-export');
 Route::resource('equipments', EquipmentController::class);
 
